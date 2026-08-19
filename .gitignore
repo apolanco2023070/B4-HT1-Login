@@ -1,3 +1,28 @@
+src/org/andypolanco/system/config/Enviroment.java
+build/*
+dist/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Compiled class file
 *.class
 

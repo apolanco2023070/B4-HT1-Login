@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../resources/style/LoginStyles.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <VBox alignment="CENTER" prefHeight="470.0" prefWidth="100.0" spacing="15.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/images.jpg" />
+               </image></ImageView>
+            <Label styleClass="etiqueta" text="Ingrese su nombre de usuario o correo" />
+            <TextField styleClass="campo" />
+            <Label styleClass="etiqueta" text="Ingrese su contraseña" />
+            <PasswordField styleClass="campo" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Hyperlink styleClass="link" text="¿No tienes cuenta? Registrate" />
+               </children>
+            </HBox>
+            <Button id="btn-login" mnemonicParsing="false" text="Iniciar Sesion" />
+         </children>
+      </VBox>
+   </children>
+</VBox>
