@@ -9,19 +9,42 @@ package org.andypolanco.system.model;
  * @author informatica
  */
 public class User {
-    private String id_user;
+    private String idUser;
     private String email;
     private String name;
     private String lastname;
     private String password;
     private String user;
 
-    public String getId_user() {
-        return id_user;
+    //constructores 
+    public User(){
+        
     }
 
-    public void setId_user(String id_user) {
-        this.id_user = id_user;
+    public User(String idUser, String email, String name, String lastname, String password, String user) {
+        this.idUser = idUser;
+        this.email = email;
+        this.name = name;
+        this.lastname = lastname;
+        this.password = password;
+        this.user = user;
+    }
+
+    public User(String idUser, String email, String name, String lastname, String user) {
+        this.idUser = idUser;
+        this.email = email;
+        this.name = name;
+        this.lastname = lastname;
+        this.user = user;
+    }
+    
+    
+    public String getId_user() {
+        return idUser;
+    }
+
+    public void setId_user(String idUser) {
+        this.idUser = idUser;
     }
 
     public String getEmail() {
