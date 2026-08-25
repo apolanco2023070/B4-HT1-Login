@@ -4,10 +4,12 @@
  */
 package org.andypolanco.system.repository;
 
+import org.andypolanco.system.model.User;
+
 /**
  *
  * @author informatica
  */
 public interface UserInterface {
-    
+    void create(User user);
 }

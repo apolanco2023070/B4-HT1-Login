@@ -1,0 +1,26 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 25/08/2026, 10:17:18
+    Author     : ANDY POLANCO - Middle Developer
+*/
+
+.form-register{
+    -fx-background-color:#3399ff;
+}
+
+.form-register Label{
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+.form-register TextField,
+.form-register PasswordField{
+    -fx-border-color: skyblue;
+    -fx-border-width: 2px;
+    -fx-border-redius: 5px;
+    -fx-backgroud-colorf: white;
+}
+
