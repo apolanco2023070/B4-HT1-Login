@@ -31,35 +31,20 @@ public class Validations {
     }
 
     public Boolean validateEmail(String email) {
-          int dotCount = 0;
-    int arrobeCount = 0;
-    
-    // VALIDA LA EXISTENCIA DE PUNTOS CONSECUTIVOS Y CUENTA LOS PUNTOS
-    for (int index = 0; index < email.length(); index++) {
-        if (email.charAt(index) == '.') {
-            dotCount++;
-            // Validación real de puntos consecutivos (ej: "test..@mail.com")
-            if (index > 0 && email.charAt(index - 1) == '.') {
+      int dotCount=0, arrobeCount=0;
+        //VALIDA LA EXISTENCIA DE PUNTOS CONSECUTIVOS
+        for( int index=0; index< email.length(); index++ ){
+            if( email.charAt( index ) == '.' )
+                dotCount++;
+            if( dotCount>1 )
                 return false;
-            }
         }
-    }
-    // La validación del conteo se evalúa AL FINAL del bucle, no dentro
-    if (dotCount == 0) {
-        return false;
-    }
-
-    // VALIDA LA EXISTENCIA DE SOLO UN ÚNICO ARROBA
-    for (int index = 0; index < email.length(); index++) {
-        if (email.charAt(index) == '@') {
-            arrobeCount++;
+        //VALIDA LA EXISTENCIA DE SOLO UN UNICO ARROBA
+        for( int index=0; index< email.length(); index++ ){
+            if( email.charAt( index ) == '@' )
+                arrobeCount++;
         }
-    }
-    // La validación del conteo se evalúa AL FINAL del bucle
-    if (arrobeCount > 1 || arrobeCount == 0) {
-        return false;
-    }
-
-    return true;
-}
+        if( arrobeCount != 1)
+            return false;
+        return true;
 }

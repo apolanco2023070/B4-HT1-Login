@@ -83,9 +83,7 @@ public class RegisterUserController implements Initializable {
 
             return;
         }
-    
 
     }
-   
-    
+
 }
