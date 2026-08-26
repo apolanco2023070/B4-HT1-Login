@@ -19,8 +19,7 @@ public class ConexionDB {
     private ConexionDB() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://" + Enviroment.LOCATION_SERVICE + "/" + Enviroment.DATA_BASE,
-                    Enviroment.USER, Enviroment.PASSWORD);
+            connection = DriverManager.getConnection("jdbc:mysql://" + Enviroment.LOCATION_SERVICE + "/" + Enviroment.DATA_BASE, Enviroment.USER, Enviroment.PASSWORD);
         } catch (ClassNotFoundException classNotFound) {
             System.out.println("Error de clase no encontrada");
         }catch(SQLException sqlException){

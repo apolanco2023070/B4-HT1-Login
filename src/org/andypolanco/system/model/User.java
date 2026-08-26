@@ -20,6 +20,8 @@ public class User {
     public User(){
         
     }
+    
+    
 
     public User(String idUser, String email, String name, String lastname, String password, String user) {
         this.idUser = idUser;
@@ -30,8 +32,8 @@ public class User {
         this.user = user;
     }
 
-    public User(String idUser, String email, String name, String lastname, String user) {
-        this.idUser = idUser;
+    public User(String password, String email, String name, String lastname, String user) {
+        this.password = password;
         this.email = email;
         this.name = name;
         this.lastname = lastname;
@@ -39,11 +41,11 @@ public class User {
     }
     
     
-    public String getId_user() {
+    public String getIduser() {
         return idUser;
     }
 
-    public void setId_user(String idUser) {
+    public void setIduser(String idUser) {
         this.idUser = idUser;
     }
 

@@ -12,6 +12,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javax.security.auth.callback.ConfirmationCallback;
+import org.andypolanco.system.service.UserService;
+import org.andypolanco.system.service.UserStatus;
 import org.andypolanco.system.utils.AlertInformation;
 import org.andypolanco.system.utils.Validations;
 import org.andypolanco.system.utils.ViewFactory;
@@ -36,6 +38,7 @@ public class RegisterUserController implements Initializable {
     private TextField pwdConfirmPassword;
     private Validations validate = new Validations();
     private AlertInformation alertInfo = new AlertInformation();
+    private UserService userService = new UserService();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -74,14 +77,45 @@ public class RegisterUserController implements Initializable {
             alertInfo.viewAlert("ERROR", "ERROR DE CAMPOS VACIOS", "ERROR DE CAMPO", "DEJO CAMPOS VACIOS EN EL FORMULARIO");
             return;
         }
-        if (validate.validateLengthText(user, 25)
-                || validate.validateLengthText(name, 50)
-                || validate.validateLengthText(lastName, 50)
-                || validate.validateLengthText(email, 50)
-                || validate.validateLengthText(email, 50)
-                || validate.validateLengthText(password, 50)) {
 
+        String msgField = "";
+        if (validate.validateLengthText(user, 25) == false) {
+            msgField = "El campo usuario es mayor a 25 caracteres";
+        }
+        if (validate.validateLengthText(name, 50) == false) {
+            msgField = "El campo de Nombres es mayor a 50 caracteres";
+        }
+        if (validate.validateLengthText(lastName, 50) == false) {
+            msgField = "El campo de Apellidos es mayor a 50 caracteres";
+        }
+        if (validate.validateLengthText(email, 50) == false) {
+            msgField = "El campo de Email es mayor a 50 caracteres";
+        }
+        if (validate.validateLengthText(password, 50) == false) {
+            msgField = "El campo de Password es mayor a 50 caracteres";
+        }
+        if (msgField.isEmpty() == false) {
+            alertInfo.viewAlert("ERROR", "ERROR DE CAMPO", "ERROR", msgField);
             return;
+        }
+
+        if (validate.equalsText(password, confirmPassword) == false) {
+            alertInfo.viewAlert("ERROR", "ERROR DE CONTRASEÑA", "ERROR", "SUS CONTRASEÑAS NO COINCIDEN");
+            return;
+        }
+        UserStatus status
+                = userService.createUser(user, name, lastName, email, password);
+        switch (status) {
+            case UserStatus.ERROR_USER_CREATED ->
+                System.out.println("Error al crear en ctrl");
+            case UserStatus.USER_CREATED ->
+                System.out.println("SI se creo el usuario");
+            case UserStatus.FIELDS_EMPTY ->
+                System.out.println("Los campos no estan vacios");
+            case UserStatus.VALUE_LENGTH_INVALID ->
+                System.out.println("Validar longitud de texto");
+            default-> System.out.println("Error desconocido");
+
         }
 
     }

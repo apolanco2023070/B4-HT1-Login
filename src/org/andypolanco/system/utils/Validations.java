@@ -31,20 +31,25 @@ public class Validations {
     }
 
     public Boolean validateEmail(String email) {
-      int dotCount=0, arrobeCount=0;
+        int dotCount = 0, arrobeCount = 0;
         //VALIDA LA EXISTENCIA DE PUNTOS CONSECUTIVOS
-        for( int index=0; index< email.length(); index++ ){
-            if( email.charAt( index ) == '.' )
+        for (int index = 0; index < email.length(); index++) {
+            if (email.charAt(index) == '.') {
                 dotCount++;
-            if( dotCount>1 )
+            }
+            if (dotCount > 1) {
                 return false;
+            }
         }
         //VALIDA LA EXISTENCIA DE SOLO UN UNICO ARROBA
-        for( int index=0; index< email.length(); index++ ){
-            if( email.charAt( index ) == '@' )
+        for (int index = 0; index < email.length(); index++) {
+            if (email.charAt(index) == '@') {
                 arrobeCount++;
+            }
         }
-        if( arrobeCount != 1)
+        if (arrobeCount != 1) {
             return false;
+        }
         return true;
+    }
 }
