@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Informatica/Desktop/Apolanco-2023070%20MAT/sem%202/auditoria-usuarios-productos/auditoria-usuarios-productos/src/org/andypolanco/system/repository/UserInterface.java</file>
-            <file>file:/C:/Users/Informatica/Desktop/Apolanco-2023070%20MAT/sem%202/auditoria-usuarios-productos/auditoria-usuarios-productos/src/org/andypolanco/system/config/Enviroment.java</file>
-            <file>file:/C:/Users/Informatica/Desktop/Apolanco-2023070%20MAT/sem%202/auditoria-usuarios-productos/auditoria-usuarios-productos/src/org/andypolanco/system/config/ConexionDB.java</file>
-            <file>file:/C:/Users/Informatica/Desktop/Apolanco-2023070%20MAT/sem%202/auditoria-usuarios-productos/auditoria-usuarios-productos/src/org/andypolanco/system/model/User.java</file>
-            <file>file:/C:/Users/Informatica/Desktop/Apolanco-2023070%20MAT/sem%202/auditoria-usuarios-productos/auditoria-usuarios-productos/src/org/andypolanco/system/repository/UserRepository.java</file>
-            <file>file:/C:/Users/Informatica/Desktop/Apolanco-2023070%20MAT/sem%202/auditoria-usuarios-productos/auditoria-usuarios-productos/src/org/andypolanco/system/config/ddl.sql</file>
+            <file>file:/C:/Users/Informatica/Desktop/Apolanco-2023070%20MAT/sem%202/auditoria-usuarios-productos/auditoria-usuarios-productos/src/org/andypolanco/system/utils/Validations.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/Apolanco-2023070%20MAT/sem%202/auditoria-usuarios-productos/auditoria-usuarios-productos/src/org/andypolanco/system/utils/ViewFactory.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/Apolanco-2023070%20MAT/sem%202/auditoria-usuarios-productos/auditoria-usuarios-productos/src/org/andypolanco/system/controller/LoginController.java</file>
+            <file>file:/C:/Users/Informatica/Desktop/Apolanco-2023070%20MAT/sem%202/auditoria-usuarios-productos/auditoria-usuarios-productos/src/org/andypolanco/system/controller/RegisterUserController.java</file>
         </group>
     </open-files>
 </project-private>
