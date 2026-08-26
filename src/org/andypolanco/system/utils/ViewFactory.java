@@ -18,9 +18,9 @@ import org.andypolanco.system.ClasePrincipal;
  */
 public class ViewFactory {
 
-    private final String PATH_VIEWS = "/org/vh/system/view/";
+    private final String PATH_VIEWS = "/org/andypolanco/system/view/";
 
-    public Scene loadFileXML(String nameFXML, int width, int height) {
+    public Scene loadFileFXML(String nameFXML, int width, int height) {
         String pathOfFile = PATH_VIEWS + nameFXML;
         try {
             //FXML Loader
@@ -45,14 +45,18 @@ public class ViewFactory {
                 case "login" -> {
                     SceneManager.getInstanciaSceneManager().getStagePrincipal().setTitle("Login de Usuarios");
                     SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(false);
-                    scene = loadFileXML("LoginView.fxml", 300, 400);
+                    scene = loadFileFXML("LoginView.fxml", 300, 400);
+                }
+                case "register"->{
+                    SceneManager.getInstanciaSceneManager().getStagePrincipal().setTitle("REGISTRO DE USUARIO");
+                    SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(false);
+                    scene = loadFileFXML("RegisterView.fxml", 400, 600);
                 }
                 default ->
-                    scene = loadFileXML("LoginView.fxml", 300, 400);
+                    scene = loadFileFXML("LoginView.fxml", 400, 350);
             }
             SceneManager.getInstanciaSceneManager().changeScene(scene);
         } catch (NullPointerException objetoNulo) {
-            //Alert
             System.out.println("error load scene");
 
         }
@@ -60,5 +64,8 @@ public class ViewFactory {
 
     public void viewLogin() {
         loadScene("login");
+    }
+    public void viewRegister(){
+        loadScene("register");
     }
 }
