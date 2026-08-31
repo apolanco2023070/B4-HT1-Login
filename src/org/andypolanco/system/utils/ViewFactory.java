@@ -47,10 +47,15 @@ public class ViewFactory {
                     SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(false);
                     scene = loadFileFXML("LoginView.fxml", 300, 400);
                 }
-                case "register"->{
+                case "register" -> {
                     SceneManager.getInstanciaSceneManager().getStagePrincipal().setTitle("REGISTRO DE USUARIO");
                     SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(false);
                     scene = loadFileFXML("RegisterView.fxml", 400, 600);
+                }
+                case "dashboard" -> {
+                    SceneManager.getInstanciaSceneManager().getStagePrincipal().setTitle("Dashboard");
+                    SceneManager.getInstanciaSceneManager().getStagePrincipal().setResizable(true);
+                    scene = loadFileFXML("DashboardView.fxml", 600, 400);
                 }
                 default ->
                     scene = loadFileFXML("LoginView.fxml", 400, 350);
@@ -65,7 +70,12 @@ public class ViewFactory {
     public void viewLogin() {
         loadScene("login");
     }
-    public void viewRegister(){
+
+    public void viewRegister() {
         loadScene("register");
+    }
+
+    public void viewDashboard() {
+        loadScene("dashboard");
     }
 }

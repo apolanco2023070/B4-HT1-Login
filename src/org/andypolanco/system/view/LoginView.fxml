@@ -23,15 +23,15 @@
                   <Image url="@../resources/images/images.jpg" />
                </image></ImageView>
             <Label styleClass="etiqueta" text="Ingrese su nombre de usuario o correo" />
-            <TextField styleClass="campo" />
+            <TextField fx:id="txtUserOrEmail" styleClass="campo" />
             <Label styleClass="etiqueta" text="Ingrese su contraseña" />
-            <PasswordField styleClass="campo" />
+            <PasswordField fx:id="pwdPassword" styleClass="campo" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Hyperlink onMouseClicked="#onRegister" styleClass="link" text="¿No tienes cuenta? Registrate" />
                </children>
             </HBox>
-            <Button id="btn-login" mnemonicParsing="false" text="Iniciar Sesion" />
+            <Button id="btn-login" fx:id="btnLogin" mnemonicParsing="false" onMouseClicked="#onLogin" text="Iniciar Sesion" />
          </children>
       </VBox>
    </children>
