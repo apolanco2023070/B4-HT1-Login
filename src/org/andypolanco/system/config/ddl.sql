@@ -13,13 +13,34 @@ create table Users(
 );
 
 Delimiter $$
-	create procedure sp_create_users(in name_p varchar(50),in lastname_p varchar(50),in email_p varchar(50),in user_p varchar(20),in password_p varchar(35))
+	create procedure sp_create_users(in name_p varchar(50),
+                                     in lastname_p varchar(50),
+                                     in email_p varchar(50),
+                                     in user_p varchar(20),
+                                     in password_p varchar(35))
 	begin
 		insert into Users( name,lastname, email, user, password,id_user)
 			values( name_p , lastname_p , email_p , user_p , password_p,uuid());
 	end $$
 Delimiter ;
- 
- call sp_create_users("gene","soto","gen@gmail.com","gen","gs123")
- 
- 
+
+Delimiter $$
+	create procedure sp_find_user_by_user_or_email(in user_or_email_p varchar(50))
+	begin
+		select id_user, name, lastname, email, user, password
+			from Users
+			where user = user_or_email_p or email = user_or_email_p;
+	end $$
+Delimiter ;
+
+Delimiter $$
+	create procedure sp_login(in user_or_email_p varchar(50), in password_p varchar(35))
+	begin
+		select id_user, name, lastname, email, user, password
+			from Users
+			where (user = user_or_email_p or email = user_or_email_p)
+			and password = password_p;
+	end $$
+Delimiter ;
+
+ select * from Users;

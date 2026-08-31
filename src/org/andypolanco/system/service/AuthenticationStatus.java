@@ -8,11 +8,7 @@ package org.andypolanco.system.service;
  *
  * @author informatica
  */
-public enum UserStatus {
-    USER_CREATED,//200
-    ERROR_USER_CREATED,//401
-    FIELDS_EMPTY,//301
-    VALUE_LENGTH_INVALID,//302
-    USER_ALREADY_EXISTS,
-    EMAIL_ALREADY_EXISTS
+public enum AuthenticationStatus {
+    NOT_EXIST_USER,
+    LOGIN_SUCCESS
 }

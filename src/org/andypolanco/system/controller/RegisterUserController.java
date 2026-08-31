@@ -107,17 +107,36 @@ public class RegisterUserController implements Initializable {
                 = userService.createUser(user, name, lastName, email, password);
         switch (status) {
             case UserStatus.ERROR_USER_CREATED ->
-                System.out.println("Error al crear en ctrl");
-            case UserStatus.USER_CREATED ->
-                System.out.println("SI se creo el usuario");
+                alertInfo.viewAlert("ERROR", "ERROR AL CREAR USUARIO", "ERROR", "No se pudo crear la cuenta, intenta de nuevo");
+            case UserStatus.USER_CREATED -> {
+                alertInfo.viewAlert("INFORMATION", "CUENTA CREADA", "REGISTRO EXITOSO",
+                        "Tu cuenta fue creada correctamente, ahora inicia sesión");
+                clearFields();
+                ViewFactory viewFacto = new ViewFactory();
+                viewFacto.viewLogin();
+            }
             case UserStatus.FIELDS_EMPTY ->
                 System.out.println("Los campos no estan vacios");
             case UserStatus.VALUE_LENGTH_INVALID ->
                 System.out.println("Validar longitud de texto");
-            default-> System.out.println("Error desconocido");
+            case UserStatus.USER_ALREADY_EXISTS ->
+                System.out.println("El usuario ya existe");
+            case UserStatus.EMAIL_ALREADY_EXISTS ->
+                System.out.println("El correo ya existe");
+            default ->
+                System.out.println("Error desconocido");
 
         }
 
+    }
+
+    private void clearFields() {
+        txtUser.clear();
+        txtName.clear();
+        txtLastName.clear();
+        txtEmail.clear();
+        pwdPassword.clear();
+        pwdConfirmPassword.clear();
     }
 
 }

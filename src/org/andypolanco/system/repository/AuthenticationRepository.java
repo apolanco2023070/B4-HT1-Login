@@ -4,57 +4,33 @@
  */
 package org.andypolanco.system.repository;
 
-import org.andypolanco.system.model.User;
 import java.sql.CallableStatement;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import org.andypolanco.system.config.ConexionDB;
+import org.andypolanco.system.model.User;
 
 /**
  *
  * @author informatica
  */
-public class UserRepository implements UserInterface {
+public class AuthenticationRepository implements AuthenticationInterface {
 
-    //CallableStatement
     private CallableStatement callSP;
     //Conexion DB
     private ConexionDB conexionDB = ConexionDB.getInstanciaConexionDB();
 
-    public UserRepository() {
+    public AuthenticationRepository() {
 
     }
 
     @Override
-    public void create(User user) {
-        try {
-            callSP = conexionDB.getConnection()
-                    .prepareCall("{call sp_create_users(?,?,?,?,?)}");
-            callSP.setString(1, user.getName());
-            callSP.setString(2, user.getLastname());
-            callSP.setString(3, user.getEmail());
-            callSP.setString(4, user.getUser());
-            callSP.setString(5, user.getPassword());
-
-            callSP.execute();
-
-            callSP.close();
-
-        } catch (Exception e) {
-            System.out.println("Error al crear el usuario");
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public User findByUserOrEmail(String userOrEmail) {
+    public User login(String email, String password) {
         User user = null;
         try {
             callSP = conexionDB.getConnection()
-                    .prepareCall("{call sp_find_user_by_user_or_email(?)}");
-            callSP.setString(1, userOrEmail);
+                    .prepareCall("{call sp_login(?,?)}");
+            callSP.setString(1, email);
+            callSP.setString(2, password);
 
             boolean hasResultSet = callSP.execute();
             if (hasResultSet) {
@@ -74,7 +50,7 @@ public class UserRepository implements UserInterface {
             callSP.close();
 
         } catch (Exception e) {
-            System.out.println("Error al buscar el usuario");
+            System.out.println("Error al iniciar sesion");
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
